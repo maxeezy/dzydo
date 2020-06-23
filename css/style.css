@@ -1,0 +1,425 @@
+*{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+     font-family: Arial, sans-serif;
+     color: black;
+ }
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+header{
+    background-color: #4a76a8;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+body{
+    min-height: 100vh;
+}
+footer{
+    background-color: #4a76a8;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+.copyright{
+    text-align: center;
+    color: white;
+}
+.header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    width: 56px;
+    border-radius: 6px;
+    margin-right: 25px;
+}
+.header-content-right{
+    display: flex;
+}
+.header-content-right-some>a{
+    text-decoration: none;
+    color: white;
+}
+.header-content-right-some:last-child{
+    margin-left: 20px;
+}
+.header-2-name{
+    font-size: 24px;
+    color: white;
+}
+.header-2-a{
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+.header-content-left{
+    display: flex;
+    align-items: center;
+
+}
+
+.register{
+    padding-top: 72px;
+    font-size: 20px;
+    padding-bottom: 27px;
+}
+.register-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.register-title{
+    text-align: center;
+    margin-bottom: 32px;
+}
+.register-form{
+    padding: 25px;
+    padding-bottom: 56px;
+    border: 1px solid;
+}
+.register-form-row{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 13px;
+}
+.register-form-label{
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: grey;
+}
+.register-form-some{
+    width: 204px;
+    height: 45px;
+    padding-left: 5px;
+}
+
+.register-form-button{
+    width: 204px;
+    padding: 10px;
+    border: 1px solid #AFAFB0;
+    border-radius: 3px;
+    box-shadow: none;
+    background-color: orange;
+    cursor: pointer;
+}
+.tournaments{
+    padding-bottom: 50px;
+}
+.cabinet{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.cabinet-title{
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-right: 25px;
+}
+.cabinet-info-row{
+    margin-bottom: 10px;
+}
+.cabinet-tournaments{
+    margin-top: 60px;
+    padding-top: 13px;
+    border-top: 1px solid #d2d2d2;
+}
+.cabinet-request{
+    margin-top: 60px;
+    padding-top: 13px;
+    border-top: 1px solid #d2d2d2;
+}
+.cabinet-tournaments-title{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.cabinet-up-wrap{
+    display: flex;
+}
+.cabinet-up-wrap>a{
+    padding-top: 4px;
+}
+
+
+.edit{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.edit-title{
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.edit-bio-title{
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.edit-bio-group{
+    border-bottom: 1px solid #dedcdc;
+    margin-bottom: 40px;
+}
+.edit-bio-group:nth-child(3){
+    border-bottom: none;
+}
+.edit-bio-row{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.edit-select{
+    width: 204px;
+    padding: 5px;
+}
+.edit-select:nth-child(2) {
+    margin-bottom: 8px;
+}
+
+
+.background{
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/2.jpg'), no-repeat;
+    background-size: cover;
+    height: 61vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.index{
+    padding-bottom: 40px;
+}
+.index-title{
+    padding-top: 50px;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.index-tournament-x{
+    margin-bottom: 25px;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,.12);
+    border-radius: 8px;
+}
+.index-tournament-x-up{
+    display: flex;
+}
+.index-tournament-x-down{
+    display: flex;
+}
+.index-tournament-x-some{
+    width: 25%;
+    background-color: #4a76a8;
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+.index-tournament-x-name,
+.index-tournament-x-date,
+.index-tournament-x-category,
+.index-tournament-x-weight,
+.index-tournament-x-sex{
+    width: 25%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-right: 1px solid grey;
+}
+.index-tournament-x-sex{
+    border-right: none;
+}
+
+
+.viewTourn{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.view-tourn-x-info{
+    display: flex;
+}
+
+.view-tourn-x-name{
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.view-tourn-x-data{
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.img-tourn{
+    width: 389px;
+}
+.view-tourn-x-sex{
+    padding-top: 109px;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.view-tourn-wrap-2{
+    padding-left: 40px;
+}
+.view-tourn-x-field{
+    margin-bottom: 25px;
+}
+.view-tourn-x-gold,
+.view-tourn-x-silver,
+.view-tourn-x-bronze,
+.view-tourn-x-age,
+.view-tourn-x-weight{
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.participants-title{
+    padding-top: 100px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.view-tourn-x-buttons{
+    display:  flex;
+    margin-bottom: 10px;
+}
+.users-view-table{
+    border-collapse: collapse;
+}
+.users-view-table>tbody>tr>td{
+    padding: 20px;
+    border-bottom: 1px solid #d4d3d3;
+}
+
+
+.view-tourn-all-mathes{
+    display: flex;
+    position: relative;
+    min-height: 588px;
+}
+.stage-3{
+    padding-top: 98px;
+}
+.stage-4{
+    position: absolute;
+    left: 200px;
+    top: 500px;
+}
+.stage-5{
+    padding-top: 232px;
+}
+.grid-a{
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+.view-tourn-x-match{
+    border: 1px solid #d7d8dc;
+    padding: 4px;
+    min-width: 200px
+}
+.view-tourn-x-match-fighter{
+    min-height: 18px;
+}
+.view-tourn-x-match>.view-tourn-x-match-fighter:first-child{
+    margin-bottom: 4px;
+}
+.stage-3>.grid-a:first-child{
+    margin-bottom: 216px;
+}
+.view-tourn-x-grid-title{
+    display: flex;
+}
+.view-tourn-wrap-3{
+    padding-left: 100px;
+    padding-top: 144px;
+}
+
+.match{
+    padding-top: 200px;
+    padding-bottom: 50px;
+}
+.match-title{
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 90px;
+}
+.match-wrap{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 78px;
+}
+.match-info{
+    margin-left: 57px;
+    margin-right: 57px;
+}
+.match-no-time{
+    margin-bottom: 10px;
+    color: orange;
+    font-size: 19px;
+}
+.match-category{
+    text-align: center;
+    margin-bottom: 5px;
+}
+.match-weight{
+    text-align: center;
+}
+.match-player{
+    min-width: 250px;
+}
+.match-player-fio{
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+.match-player-country-sity{
+    margin-bottom: 5px;
+}
+.match-score{
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 3px;
+}
+.match-type_win{
+    margin-bottom: 15px;
+    text-align: center;
+}
+.register-error{
+    color: firebrick;
+    margin-bottom: 5px;
+}
+
+.ch0ch{
+    background: url("https://psv4.userapi.com/c856324/u11817824/docs/d9/680d2fee8962/SnappyTintedIndiancow-size_restricted.gif?extra=fkMCUeVkrD3r-4bTUsECcwC-Z5wYjhuoQ9VaDPnP-A0R7stq6jps-tzOqk_RKgWCB0skBF-wNtEpeAJHiOKhLFHSpQRHBKSMH2oavNs8v-Y8ULaKL-nNvuoMelQ5_zKCJISeDkXBhsb1YK8phEPYTUho");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.ch0ch-field{
+    font-size: 104px;
+    text-align: center;
+    padding-top: 269px;
+    color: white;
+}
+.ch0ch-field2{
+    text-align: center;
+    color: white;
+}
+.ch0ch-field2>a{
+    color: white;
+}
+
+.cabinet,
+.tournaments,
+.viewTourn,
+.admin-start,
+.ch0ch,
+.register,
+.match,
+.edit,
+.inviteTry
+{
+    min-height: 86vh;
+}
