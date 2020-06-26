@@ -50,10 +50,17 @@ include_once "admin_header.php";
                     <form action="" class="match-edit-form" method="post">
                         <div class="match-edit-form-groupt">
                             <div class="match-edit-who">Победитель</div>
-                            <input type="radio" name="winner" value="<?php echo $participants['fighter_1'][0]['id']?>" id="f1">
-                            <label for="f1"><?php echo $participants['fighter_1'][0]['surname'] . " " . $participants['fighter_1'][0]['name'] ?></label>
-                            <input type="radio" name="winner" value="<?php echo $participants['fighter_2'][0]['id']?>" id="f2">
-                            <label for="f2"><?php echo $participants['fighter_2'][0]['surname'] . " " . $participants['fighter_2'][0]['name'] ?></label>
+                            <?php if ($participants['fighter_2']==NULL):?>
+                                <input type="radio" name="winner" value="<?php echo "Неизвестно"?>" id="f1">
+                                <label for="f1"><?php  echo "Неизвестно"?></label>
+                                <input type="radio" name="winner" value="<?php  echo "Неизвестно"?>" id="f2">
+                                <label for="f2"><?php  echo "Неизвестно" ?></label>
+                            <?php else:?>
+                            <input type="radio" name="winner" value="<?php  echo "Неизвестно"?>" id="f1">
+                            <label for="f1"><?php  echo "Неизвестно"?></label>
+                            <input type="radio" name="winner" value="<?php  echo "Неизвестно"?>" id="f2">
+                            <label for="f2"><?php  echo "Неизвестно"?></label>
+                            <?php endif;?>
                         </div>
                         <select class="match-win-type" name="type">
                             <?php foreach ($winsType as  $win):?>
@@ -65,10 +72,17 @@ include_once "admin_header.php";
                             <?php endforeach;?>
                         </select>
                         <div class="match-edit-form-groupt">
-                            <label for="score1">Очки <?php echo $participants['fighter_1'][0]['surname'] . " " . $participants['fighter_1'][0]['name'] ?></label>
+                            <?php if ($participants['fighter_1']==NULL):?>
+                                <label for="score1">Очки <?php echo "Неизвестно"?></label>
+                                <input type="text" id="score1" name="score1" class="match-input-score">
+                                <label for="score2">Очки <?php echo "Неизвестно" ?></label>
+                                <input type="text" id="score2" name="score2" class="match-input-score">
+                            <?php else:?>
+                            <label for="score1">Очки <?php echo "Неизвестно" ?></label>
                             <input type="text" id="score1" name="score1" class="match-input-score">
-                            <label for="score2">Очки <?php echo $participants['fighter_2'][0]['surname'] . " " . $participants['fighter_2'][0]['name'] ?></label>
+                            <label for="score2">Очки <?php echo "Неизвестно"?></label>
                             <input type="text" id="score2" name="score2" class="match-input-score">
+                            <?php endif;?>
                         </div>
                         <input type="submit" value="Изменить" name="submit" class="edit-match-butt">
                     </form>

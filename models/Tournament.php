@@ -232,15 +232,15 @@ class Tournament
         foreach ($fights as $key => $value) {
             if (($value['stage_id'] != 5) && ($value['stage_id'] != 4)) {
                 if ($value['stage_id'] == 3) {
-                    $lastStage = $db->queryObj("SELECT * FROM `fights` WHERE stage_id = :id", [':id' => 5]);
+                    $lastStage = $db->queryObj("SELECT * FROM `fights` WHERE stage_id = :id AND tournament_id = :idT", [':id' => 5,':idT'=>$id]);
                     $db->add("UPDATE `fights` SET `fight_after_id`= :id_fight WHERE id = :id", [':id' => $value['id'], ':id_fight' => $lastStage->id]);
                 } else {
                     $nextStage = (int)$value['stage_id'] + 1;
-                    $fightsNextStage = $db->queryAssoc("SELECT * FROM `fights` WHERE stage_id = :id", [':id' => $nextStage]);
+                    $fightsNextStage = $db->queryAssoc("SELECT * FROM `fights` WHERE stage_id = :id AND tournament_id = :idT", [':id' => $nextStage,':idT'=>$id]);
                     foreach ($fightsNextStage as $f) {
-                        $check = $db->queryAssoc("SELECT * FROM `fights` WHERE fight_after_id = :id", [':id' => $f['id']]);
+                        $check = $db->queryAssoc("SELECT * FROM `fights` WHERE fight_after_id = :id AND tournament_id = :idT", [':id' => $f['id'],':idT'=>$id]);
                         if (count($check) < 2) {
-                            $db->add("UPDATE `fights` SET `fight_after_id`= :id_fight WHERE id = :id", [':id' => $value['id'], ':id_fight' => $f['id']]);
+                            $db->add("UPDATE `fights` SET `fight_after_id`= :id_fight WHERE id = :id AND tournament_id = :idT", [':id' => $value['id'], ':id_fight' => $f['id'],':idT'=>$id]);
                             break;
                         } else {
                             continue;
@@ -251,15 +251,23 @@ class Tournament
         }
 
         shuffle($users);
-
+       $last = "";
         foreach ($pattern as $key => $p) {
-            shuffle($users);
             if ((int)$key != 4) {
-                $currentStage = $db->queryAssoc("SELECT * FROM `fights` WHERE stage_id = :id", [':id' => $key]);
+                $currentStage = $db->queryAssoc("SELECT * FROM `fights` WHERE stage_id = :id AND tournament_id = :idT", [':id' => $key,':idT'=>$id]);
                 if ($users) {
                     foreach ($currentStage as $current) {
+                        $last = $users[0]['id'];
                         $db->add("UPDATE `fights` SET `fighter_1_id` = :id_f  WHERE `tournament_id` = :id_t AND `id` = :id_m", [':id_f' => array_shift($users)['id'], 'id_t' => $id, ':id_m' => $current['id']]);
-                        $db->add("UPDATE `fights` SET `fighter_2_id` = :id_f  WHERE `tournament_id` = :id_t AND `id` = :id_m", [':id_f' => array_shift($users)['id'], 'id_t' => $id, ':id_m' => $current['id']]);
+                        if ($users) {
+
+                            $db->add("UPDATE `fights` SET `fighter_2_id` = :id_f  WHERE `tournament_id` = :id_t AND `id` = :id_m", [':id_f' => array_shift($users)['id'], 'id_t' => $id, ':id_m' => $current['id']]);
+
+                        }
+                        else{
+                            $db->add("UPDATE `fights` SET `winner` = fighter_1_id,`type_win_id`=3,`score_fighter_1`=0,`score_fighter_2`= 0 WHERE id = :id",[':id'=> $current['id']]);
+                            $db->add("UPDATE `fights` SET `fighter_1_id` = :idF WHERE id = :id",[':idF'=>$last,':id'=>$current['fight_after_id']]);
+                        }
                     }
                 }
             }
